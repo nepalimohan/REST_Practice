@@ -23,7 +23,7 @@ class Product(models.Model):
     ))
     
     stock = models.IntegerField()
-    image = models.FileField(upload_to='productimage')
+    # image = models.FileField(upload_to='productimage')
     description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     
