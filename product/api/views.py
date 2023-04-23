@@ -9,6 +9,7 @@ from django.http import Http404
 
 from rest_framework import mixins
 from rest_framework import generics
+from rest_framework import viewsets
 
 #using Mixins
 class CategoryMixins(mixins.CreateModelMixin,
@@ -127,3 +128,8 @@ class ProductDetailsGenericViews(generics.RetrieveUpdateDestroyAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    
+    
+class ProductListViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
